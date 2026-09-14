@@ -87,6 +87,108 @@ services:
       kafka:
         condition: service_healthy
 
+  # -----------------------------------------------------------
+  # Backend Core Services
+  # -----------------------------------------------------------
+  api-gateway:
+    build:
+      context: .
+      dockerfile: backend/api-gateway/Dockerfile
+    container_name: apexobserve_api_gateway
+    ports:
+      - "8080:8080"
+
+  ingestion-service:
+    build:
+      context: .
+      dockerfile: backend/ingestion-service/Dockerfile
+    container_name: apexobserve_ingestion_service
+    ports:
+      - "8081:8081"
+
+  processing-service:
+    build:
+      context: .
+      dockerfile: backend/processing-service/Dockerfile
+    container_name: apexobserve_processing_service
+    ports:
+      - "8082:8082"
+
+  query-service:
+    build:
+      context: .
+      dockerfile: backend/query-service/Dockerfile
+    container_name: apexobserve_query_service
+    ports:
+      - "8083:8083"
+
+  alerting-service:
+    build:
+      context: .
+      dockerfile: backend/alerting-service/Dockerfile
+    container_name: apexobserve_alerting_service
+    ports:
+      - "8084:8084"
+
+  ai-service:
+    build:
+      context: ai-service
+      dockerfile: Dockerfile
+    container_name: apexobserve_ai_service
+    ports:
+      - "8005:8005"
+
+  # -----------------------------------------------------------
+  # Demo Applications
+  # -----------------------------------------------------------
+  api-gateway-demo:
+    build:
+      context: .
+      dockerfile: demo-services/api-gateway-demo/Dockerfile
+    container_name: apexobserve_api_gateway_demo
+    ports:
+      - "8090:8090"
+
+  inventory:
+    build:
+      context: .
+      dockerfile: demo-services/inventory/Dockerfile
+    container_name: apexobserve_demo_inventory
+    ports:
+      - "8091:8091"
+
+  notification:
+    build:
+      context: .
+      dockerfile: demo-services/notification/Dockerfile
+    container_name: apexobserve_demo_notification
+    ports:
+      - "8092:8092"
+
+  order:
+    build:
+      context: .
+      dockerfile: demo-services/order/Dockerfile
+    container_name: apexobserve_demo_order
+    ports:
+      - "8093:8093"
+
+  payment:
+    build:
+      context: .
+      dockerfile: demo-services/payment/Dockerfile
+    container_name: apexobserve_demo_payment
+    ports:
+      - "8094:8094"
+
+  user:
+    build:
+      context: .
+      dockerfile: demo-services/user/Dockerfile
+    container_name: apexobserve_demo_user
+    ports:
+      - "8095:8095"
+
 volumes:
   timescaledb_data:
   redis_data:
