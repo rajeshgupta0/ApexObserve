@@ -1,0 +1,52 @@
+# Build outputs
+**/target/
+**/build/
+**/*.class
+**/*.jar
+**/*.war
+
+# Node
+**/node_modules/
+**/.next/
+**/out/
+**/.turbo/
+
+# Python
+**/__pycache__/
+**/*.pyc
+**/.venv/
+**/venv/
+**/*.egg-info/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Docker
+docker-compose.override.yml
+
+# Logs
+*.log
+logs/
+
+# Maven wrapper jar (keep the wrapper scripts)
+!.mvn/wrapper/maven-wrapper.jar
+
+# Test coverage
+**/coverage/
+**/.nyc_output/
+**/htmlcov/
