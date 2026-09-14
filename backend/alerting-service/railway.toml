@@ -1,0 +1,13 @@
+[build]
+builder = "dockerfile"
+dockerfilePath = "backend/alerting-service/Dockerfile"
+watchPatterns = [
+  "backend/alerting-service/**",
+  "backend/common/**",
+  "pom.xml"
+]
+
+[deploy]
+restartPolicyType = "on_failure"
+restartPolicyMaxRetries = 10
+
