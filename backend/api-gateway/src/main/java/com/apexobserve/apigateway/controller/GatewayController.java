@@ -8,7 +8,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "*") // Allows Next.js frontend to access
+@CrossOrigin(origins = "${FRONTEND_URL:http://localhost:3000}") // Allows Next.js frontend to access
 public class GatewayController {
 
     private final RestTemplate restTemplate;
